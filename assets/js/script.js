@@ -15,7 +15,9 @@ var recentSearchesEl = $('.recent-searches');
 var searchBtnEl = $('#search');
 
 var searchHistoryArray = JSON.parse(localStorage.getItem('citySearch')) || [];
-function formSubmitHandler() {
+
+// handles data from submission
+function formSubmitHandler(event) {
   event.preventDefault();
   // get city name value from input element
   var city = $('#location').val();
@@ -38,6 +40,7 @@ function formSubmitHandler() {
   localStorage.setItem('citySearch', JSON.stringify(searchHistoryArray));
   location.href = './adventure.html';
 }
+
 // Load any past city searches
 function loadHistory() {
   for (var i = searchHistoryArray.length - 1; i >= 0; i--) {
@@ -55,6 +58,7 @@ function loadHistory() {
     location.reload;
   }
 }
+
 // Search using search history buttons
 var buttonClickHandler = function (event) {
   var cityname = event.target.getAttribute('data-city');
@@ -63,7 +67,10 @@ var buttonClickHandler = function (event) {
   }
 };
 
+
 loadHistory();
+
+// event listner for when the user clicks on the past searches
 searchBtnEl.on('click', formSubmitHandler);
 $('.search-item').on('click', function (event) {
   event.stopPropagation();

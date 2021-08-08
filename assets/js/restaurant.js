@@ -11,6 +11,7 @@ var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
 var restaurantLinkEl = document.getElementById('restaurant-link');
 
+// searchs for nearby restuarants
 function search(lat, lng) {
   eventLoc = { lat: lat, long: lng };
   var searchLocation = new google.maps.LatLng(lat, lng);

@@ -3,6 +3,7 @@
 var eventObj = {};
 var restaurantObj = {};
 
+// contructs a restuarant object for the function to use
 var makeRestaurantObj = function (randomPlace, restaurant) {
   restaurantObj = {
     name: randomPlace.name,
@@ -15,6 +16,7 @@ var makeRestaurantObj = function (randomPlace, restaurant) {
   return restaurantObj;
 };
 
+// constructs an event object for the functions to use.
 var makeEventObj = function (name, address, url, lat, lon) {
   eventObj = {
     name: name,
@@ -27,6 +29,7 @@ var makeEventObj = function (name, address, url, lat, lon) {
   return eventObj;
 };
 
+// generates the map based on from search
 function initMap() {
   var centerLat = (restaurantObj.lat + eventObj.lat) / 2;
   var centerLon = (restaurantObj.lon + eventObj.lon) / 2;
